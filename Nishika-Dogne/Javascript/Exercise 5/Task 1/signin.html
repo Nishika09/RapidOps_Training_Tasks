@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign_In</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+
+    <div class="container">
+        <div class="form-box">
+            <h1 id="Title">Sign In</h1>
+            <form>
+                <div class="input-group">
+                    <div class="input-field" id="namefield">
+                        <input type="text" placeholder="Username" id="name">
+                    </div>
+                    <div class="input-field" id="email">
+                        <input type="email" placeholder="Email" id="mail">
+                    </div>
+                    <div class="input-field" id="password">
+                        <input type="password" placeholder="Password" id="pass">
+                    </div>
+
+
+                    <p>Lost Password <a href="#">Click Here</a></p>
+                    <div class="radiobtn">
+                        <input type="radio" id="admin" name="user_type" value="admin">
+                        <label for="admin">Admin</label>
+                        <input type="radio" id="student" name="user_type" value="student">
+                        <label for="student">Student</label>
+
+                    </div>
+
+                </div>
+
+                <div class="btn-field">
+                    <button type="button" id="signinbtn" class="disable">Sign In</button>
+                </div>
+                <a href="signup.html" class="btn-field"><button type="button" id="signupbtn">Sign Up</button></a>
+            </form>
+
+
+        </div>
+
+    </div>
+
+    <script>
+        let signupbtn = document.getElementById("signupbtn");
+        let signinbtn = document.getElementById("signinbtn");
+        let namefield = document.getElementById("namefield");
+        let ConfirmPass = document.getElementById("cpass");
+
+
+        signinbtn.onclick = function () {
+
+            let key, temp;
+            let userName = document.getElementById("name").value;
+            let e_mail = document.getElementById("mail").value;
+            let pwd = document.getElementById("pass").value;
+            let usertype = document.querySelector('input[name="user_type"]:checked').value;
+            let users = JSON.parse(localStorage.getItem("users"));
+            let loginUser = users.find((u) => u.Username == userName && (u.Email == e_mail) && (u.password == pwd) && (u.user_type == usertype));
+           console.log(loginUser);
+            if ('admin' == loginUser.user_type) {
+                sessionStorage.setItem("loginUser",JSON.stringify(loginUser));
+                location.replace('./admin.html')
+               
+
+            }
+            else if('student' == loginUser.user_type){
+                sessionStorage.setItem("loginUser",JSON.stringify(loginUser));
+                location.replace('./student.html')
+            }
+            
+            // for (let i = 0; i < localStorage.length; i++) {
+            //     key = localStorage.key(i);
+            //     //console.log(key);
+            //     temp = localStorage.getItem(key);
+            //     //console.log(temp);
+            //     let arr = JSON.parse(temp);
+            //     // console.log(arr);
+            //     arr.forEach((element) => {
+            //         console.log("in foreach")
+            //         if (e_mail == element.Email) {
+            //             console.log("in foreach1")
+            //             //localStorage.setItem('Email',e_mail)
+            //             if (pwd == element.password) {
+            //                 console.log("in foreach2")
+            //                 //localStorage.setItem('password',pwd)
+            //                 {
+            //                     if ('admin' == usertype) {
+            //                         location.replace('./admin.html')
+            //                     }
+            //                     else {
+            //                         location.replace('./student.html')
+            //                     }
+            //                 }
+            //             }
+
+            //         }
+
+            //     });
+            // }
+
+
+
+            if (!userName || !e_mail || !pwd) {
+                return alert("you need to fill up all the forms.");
+            }
+
+        }
+
+    </script>
+</body>
+
+</html>

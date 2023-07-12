@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form2</title>
+</head>
+<body>
+  <p><h1>Form with custom validation</h1></p>
+    <form id="forms" onclick="validate()" >
+        <label for="name"> Enter FirstName</label>
+        <input type="text" name="fname" id="fn" placeholder="first name" > <br><br>
+        <span id="firstname" class="text-danger"></span><br>
+    
+        <label for="name">Enter LastName</label>
+        <input type="text" name="lname" id="ln" placeholder="last name"> <br><br>
+        <span id="lastname" class="text-danger"></span><br>
+    
+        <label for="email">Enter Email</label>
+        <input type="email" id="email" placeholder="abc@gmail.com"> <br><br>
+        <span id="mail" class="text-danger"></span><br>
+    
+        <label for="number">Enter Age</label>
+        <input type="number" id="age" placeholder="age" min="13" max="26" ><br><br>
+        <span id="no" class="text-danger"></span><br>
+    
+        <label for="birthday">Enter Birthday</label>
+        <input type="date" id="birthday" name="birthday" max="2023-01-01" required><br><br>
+    
+        
+    
+     <label for="place">Places</label>
+      <select name="place" id="place">
+        <option value="gujarat">gujarat</option>
+        <option value="rajasthan">rajasthan</option>
+        <option value="delhi">delhi</option>
+        <option value="maharashtra">maharashtra</option>
+      </select><br><br>
+
+        <!-- <p>Payment Method</p>
+        <input type="radio" id="deb" name="debit">
+        <label for="debit">Debit Card</label><br>
+        <input type="radio" id="mh" name="credit">
+        <label for="credit">Credit Card</label><br>
+        <input type="radio" id="upi" name="upi">
+        <label for="upi">UPI</label><br>
+        <input type="radio" id="cash" name="cash">
+        <label for="cash">Cash</label><br>
+        
+        <p>Travel Vehicle</p>
+        <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+        <label for="vehicle1">bike</label><br>
+        <input type="checkbox" id="vehicle2" name="vehicle2" value="car">
+        <label for="vehicle2">inova</label><br>
+        <input type="checkbox" id="vehicle3" name="vehicle3" value="car">
+        <label for="vehicle1"> scorpio</label><br>
+        <input type="checkbox" id="vehicle4" name="vehicle4" value="car">
+        <label for="vehicle4">I10 </label><br> -->
+
+        <label for="pay">Payment: </label>
+        <select name="payment" id="pay"required>
+            <option value=hidden ></option>
+            <option value="Debit Card"> Debit Card</option>
+            <option value="Credit Card"> Credit Card</option>
+            <option value="Cash"> Cash</option>
+            <option value="UPI"> UPI</option>
+        </select><br><br>
+       <label for="vehicle">Travel Vehicle:</label> 
+        <select name="vehicle" id="vehicle" required>
+            <option value=hidden ></option>
+            <option value="BMW M4">BMW M4</option>
+            <option value="Rolls Royce">Rolls Royce</option>
+            <option value="Audi R8">Audi R8</option>
+            <option value="Bugatti chiron">Bugatti chiron</option>
+        </select><br><br>
+    
+       <br><br>
+    
+       <!-- <input type="submit" id="submit" value="Submit" class="btn btn-success"><br><br> -->
+       <input type="submit" id="sub" value="Submit" class="btn btn-success"><br><br>
+
+       
+       <div id="tab">
+        <table border="1" id="table">
+            <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Age</th>
+                <th>Birthday</th>
+                <th>Place</th>
+                <th>Payment</th>
+                <th>Travel Vehicle</th>
+                
+            </tr>
+        </table>
+        
+    </div>
+
+
+    <script src="./2.js">
+
+      
+      
+      
+      
+      
+
+   
+
+    </script>
+
+
+</body>
+</html>

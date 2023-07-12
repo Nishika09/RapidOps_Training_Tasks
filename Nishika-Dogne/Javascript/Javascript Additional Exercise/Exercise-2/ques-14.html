@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        
+      //filtering using property value
+      const products = [
+        { name: "iPhone", category: "Electronics" },
+        { name: "Nike shoes", category: "Fashion" },
+        { name: "Samsung TV", category: "Electronics" },
+        { name: "Adidas jacket", category: "Fashion" },
+      ];
+
+      const electronicsProducts = products.filter(
+        (product) => product.category === "Electronics"
+      );
+      console.log(electronicsProducts);
+      // Output: [{ name: 'iPhone', category: 'Electronics' }, { name: 'Samsung TV', category: 'Electronics' }]
+
+
+      //sorting using property value
+      const students = [
+        { name: "John", age: 23 },
+        { name: "Jane", age: 20 },
+        { name: "Mary", age: 21 },
+        { name: "Peter", age: 25 },
+      ];
+
+      const sortedStudents = students.sort((a, b) => a.age - b.age);
+      console.log(sortedStudents);
+      // Output: [{ name: 'Jane', age: 20 }, { name: 'Mary', age: 21 }, { name: 'John', age: 23 }, { name: 'Peter', age: 25 }]
+
+
+      //using map
+      const employees = [
+        { name: "John", salary: 5000 },
+        { name: "Jane", salary: 6000 },
+        { name: "Mary", salary: 7000 },
+      ];
+
+      const increasedSalaries = employees.map((employee) => ({
+        ...employee,
+        salary: employee.salary * 1.1,
+      }));
+      console.log(increasedSalaries);
+      // Output: [{ name: 'John', salary: 5500 }, { name: 'Jane', salary: 6600 }, { name: 'Mary', salary: 7700 }]
+
+
+      //using string method to filter array
+      const names = ["John", "Jane", "Mary", "Peter"];
+
+      const filteredNames = names.filter((name) => name.includes("a"));
+      console.log(filteredNames); // Output: ['Jane', 'Mary']
+    </script>
+  </body>
+</html>

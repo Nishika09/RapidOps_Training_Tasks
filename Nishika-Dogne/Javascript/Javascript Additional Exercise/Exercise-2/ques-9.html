@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    
+    //power of a number
+    function pow(number, power) {
+    if (power===1) {
+        return number;
+    }
+    return number * pow(number, power-1);
+}
+
+pow(2,2);
+
+// pascal triangle
+function pascal(row, column) {
+    if (column>row) {
+        return 0;
+    }
+    if (column<=1 || row<=1) {
+        return 1;
+    }
+    return pascal(row-1, column) + pascal(row-1, column-1);
+}
+
+function triangle(number) {
+    let string = "";
+    for (let row=1; row<=number; row++) {
+        for(let column=1; column<=row; column++) {
+            string += `${pascal(row, column)} `;
+        }
+        string += "\n";
+    }
+    console.log(string);
+}
+
+triangle(10);
+
+//sum of natural number
+function sum(n) {
+  if (n <= 1) {
+    return n;
+  }
+  return n + sum(n - 1);
+}
+
+//suum of numbers
+function sum(number) {
+    if (number===0) {
+        return 0;
+    }
+    return number + sum(number-1);
+}
+
+sum(10);
+
+
+    </script>
+</body>
+</html>

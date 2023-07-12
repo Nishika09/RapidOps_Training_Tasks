@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login page</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-box">
+            <h1 id="Title">Sign Up</h1>
+            <form id="form">
+                <div class="input-group">
+                    <div class="input-field" id="namefield">
+                        <input type="text" placeholder="Name" id="name" pattern="[A-Za-z]" required>
+                    </div>
+                    <div class="input-field" id="email">
+                        <input type="email" placeholder="Email" id="mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"required>
+                    </div>
+                    <div class="input-field" id="password">
+                        <input type="password" placeholder="Password" id="pass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                    </div>
+                    <div class="input-field" id="password">
+                        <input type="password" placeholder=" Confirm Password" id="cpass" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" required>
+                    </div>
+
+                    <p>Lost Password <a href="#">Click Here</a></p>
+                    <div class="radiobtn" required>
+
+                        <input type="radio" id="admin" name="user_type" value="admin">
+                        <label for="admin">Admin</label>
+                        <input type="radio" id="student" name="user_type" value="'student">
+                        <label for="student">Student</label>
+
+
+
+                    </div>
+
+                </div>
+                <div class="btn-field">
+                    <button type="button" id="signupbtn">Sign Up</button>
+
+            </form>
+        </div>
+        <a href="signin.html" class="btn-field"><button type="button" id="signinbtn">Sign In</button></a>
+        </form>
+
+    </div>
+
+    </div>
+
+    <script>
+        let signupbtn = document.getElementById("signupbtn");
+        let signinbtn = document.getElementById("signinbtn");
+        let namefield = document.getElementById("namefield");
+        let ConfirmPass = document.getElementById("cpass");
+        let Title = document.getElementById("Title");
+
+        signupbtn.onclick = function () {
+            namefield.style.maxHeight = "60px";
+            cpass.style.maxHeight = "60px";
+            Title.innerHTML = "Sign Up";
+            signupbtn.classList.remove("disable");
+            signinbtn.classList.add("disable");
+
+            let user_type;
+            var name = document.getElementById("name").value;
+            var email = document.getElementById("mail").value;
+            var password = document.getElementById("pass").value;
+            var ConPass = document.getElementById("cpass").value;
+
+            if (document.getElementById('admin').checked) {
+                user_type = 'admin';
+            }
+            else
+                user_type = 'student';
+
+            console.log(user_type);
+
+            let Arr = JSON.parse(localStorage.getItem('users')) || [];
+            let obj = {
+                Username: name,
+                Email: email,
+                password: password,
+                user_type: user_type,
+                course: ["html", "css", "javascript"]
+            };
+
+
+            // if the fields are empty
+            if (!name || !email || !password) {
+                console.log(name, email, password)
+                return console.log("you need to fill up all the forms.");
+            }
+
+            //push new user to array
+            Arr.push(obj);
+
+            //save to localStorage
+            localStorage.setItem("users", JSON.stringify(Arr));
+            alert("Account Created!");
+            location.replace('./signin.html')
+
+        }
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

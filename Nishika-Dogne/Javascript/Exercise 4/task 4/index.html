@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>task 4</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="form">
+        <div class="firstname">
+            
+            <input type="text" id="fname" placeholder="First Name" required>
+            <input type="text" id="lname" placeholder="Last Name" required>
+            <button id="button" type="submit">+ Add</button>
+        </div>
+    </form>
+        <div>
+            <span id="total">Total Selected Rows:0</span>
+            <table border="1" id="tb" class="table">
+                <tr>
+                    <th><input name="formCheck" id= "sec" type="checkbox" onclick="selects(this)">Select All </th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Edit</th>
+                    <th><button id="delete" onclick="DeleteAll()">Delete</button></th>
+                   
+                </tr>
+                
+                
+    
+            </table>
+        </div> 
+    
+
+
+
+
+
+
+<script src="script.js"></script>    
+</body>
+</html>

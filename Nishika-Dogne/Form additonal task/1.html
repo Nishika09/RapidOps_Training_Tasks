@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form1</title>
+</head>
+<body>
+<p><h1>Form With HTML Validation</h1></p>    
+    
+<form id="u_form">
+    <label for="fname"> Enter FirstName</label>
+    <input type="text" id="fname"name="fname" placeholder="first name" minlength="6"required> <br><br>
+
+
+    <label for="lname">Enter LastName</label>
+    <input type="text" id="lname" name="lname" placeholder="last name" minlength="6" required> <br><br>
+
+    <label for="email">Enter Email</label>
+    <input type="email" id="email" placeholder="abc@gmail.com" required> <br><br>
+    
+    <label for="age">Enter Age</label>
+    <input type="number" id="age" placeholder="age" min="13" max="26" required><br><br>
+    
+    <label for="birthday">Enter Birthday</label>
+    <input type="date" id="birthday" name="birthday" max="2023-01-01" required><br><br>
+    
+
+    <label for="place">Places</label>
+      <select name="place" id="place" required>
+        <option value=hidden ></option>
+        <option value="gujarat">gujarat</option>
+        <option value="rajasthan">rajasthan</option>
+        <option value="delhi">delhi</option>
+        <option value="maharashtra">maharashtra</option>
+      </select><br><br>
+
+    <label for="pay">Payment: </label>
+    <select name="payment" id="pay"required>
+        <option value=hidden ></option>
+        <option value="Debit Card"> Debit Card</option>
+        <option value="Credit Card"> Credit Card</option>
+        <option value="Cash"> Cash</option>
+        <option value="UPI"> UPI</option>
+    </select><br><br>
+   <label for="vehicle">Travel Vehicle:</label> 
+    <select name="vehicle" id="vehicle" required>
+        <option value=hidden ></option>
+        <option value="BMW M4">BMW M4</option>
+        <option value="Rolls Royce">Rolls Royce</option>
+        <option value="Audi R8">Audi R8</option>
+        <option value="Bugatti chiron">Bugatti chiron</option>
+    </select><br><br>
+    
+    <input type="submit" id="sub" value="Submit"><br><br>
+   <!-- <input type="submit" id="btn">Submit</button><br><br> -->
+</form>   
+
+
+
+<div id="tab">
+    <table border="1" id="table">
+        <tr>
+            <th>FirstName</th>
+            <th>LastName</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Birthday</th>
+            <th>Place</th>
+            <th>Payment</th>
+            <th>Travel Vehicle</th>  
+        </tr>
+        <tbody>
+
+        </tbody>
+    </table>
+    
+</div>
+
+<script src="script.js"></script>
+
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function valid_email()
+    {
+        email=prompt("enter email addres");
+        var validformat = /^([a-zA-Z0-9\._])+@([a-zA-Z0-9])+\.([a-z]){2,3}$/
+        if(validformat.test(email))
+        {  
+             console.log("Valid email address!");  
+        }  
+        else  
+        {  
+            console.log("You have entered an invalid email address!");  
+            }
+    }
+    valid_email();
+    </script>
+    
+    
+</body>
+</html>

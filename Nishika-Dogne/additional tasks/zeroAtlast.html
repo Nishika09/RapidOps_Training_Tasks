@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let string=[0,"a",4,"the",0,9,"ik",0];
+        let count=0;
+        for(let i=0;i<string.length;i++){
+            if(string[i]===0){
+                
+                string.splice(i,1);
+                count++;
+
+            }
+
+        }
+        for(let i=0;i<count;i++){
+            string.push(0);
+        }
+        console.log(string);
+
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Admin Dashboard</title>
+  </head>
+  <style>
+    .navbar {
+      background-color: rgb(242, 207, 81);
+      height: 50px;
+      width: 100%;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .table {
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 100px;
+      justify-content: center;
+      padding: 20px 50px 20px 50px;
+      font-size: 35px;
+      background-color: rgb(234, 242, 248);
+    }
+
+    td {
+      text-align: center;
+      padding: 20px 20px;
+    }
+
+    button {
+      font-size: large;
+
+      font-weight: bolder;
+    }
+
+    .add {
+      background-color: rgb(246, 174, 7);
+      color: black;
+      padding: 10px;
+    }
+
+    .remove {
+      background-color: rgb(252, 41, 30);
+      color: white;
+      padding: 10px;
+    }
+
+    .logout {
+      float: right;
+      margin-top: 10px;
+      margin-right: 20px;
+    }
+
+    .logo {
+      margin-left: 10px;
+    }
+
+    .html {
+      height: 100px;
+      width: 100px;
+      display: block;
+      margin: auto;
+    }
+
+    .css {
+      height: 100px;
+      width: 80px;
+      display: block;
+      margin: auto;
+    }
+
+    .java {
+      height: 100px;
+      width: 120px;
+      display: block;
+      margin: auto;
+    }
+    .btn {
+      margin-top: 30px;
+      justify-items: center;
+      margin-left: 30px;
+    }
+  </style>
+
+  <body>
+    <div class="navbar">
+      <p class="logo">
+        Rapidops <button class="logout" onclick="logOut()">LogOut</button>
+      </p>
+    </div>
+
+    <div>
+      <button class="btn" onclick="createCourse()">Create Course</button>
+      <button class="btn" onclick="nextpage()">List Of Students</button>
+      <table border="1" id="tb" class="table">
+        <tr class="row">
+          <th>Course Name</th>
+          <th>Add</th>
+          <th>Remove</th>
+        </tr>
+        <tr>
+          <td><img src="html.png" class="html" />HTML</td>
+          <td>
+            <button id="HTML" class="add" onClick="onadd('html')">
+              Assign Course
+            </button>
+          </td>
+          <td>
+            <button class="remove" onClick="onremove('html')">Remove</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="css.png" class="css" />CSS</td>
+          <td>
+            <button id="CSS" class="add" onClick="onadd('css')">
+              Assign Course
+            </button>
+          </td>
+          <td>
+            <button class="remove" onClick="onremove('css')">Remove</button>
+          </td>
+        </tr>
+        <tr>
+          <td><img src="java.png" class="java" />Javascript</td>
+          <td>
+            <button id="JAVASCRIPT" class="add" onClick="onadd('javascript')">
+              Assign Course
+            </button>
+          </td>
+          <td>
+            <button class="remove" onClick="onremove('javascript')">
+              Remove
+            </button>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <script>
+      let table = document.getElementById("tb");
+
+      window.onload = () => {
+        let currentUser = JSON.parse(sessionStorage.getItem("loginUser"));
+        if (!currentUser) {
+          window.location.replace("./signin.html");
+        }
+      };
+
+      function onadd(t) {
+        //    alert("course assigned")
+        // console.log(t.parentNode.parentNode.childNodes[1]);
+        const userarray = JSON.parse(localStorage.getItem("users"));
+        // user[0].course.push(t.id) ;
+        console.log(userarray);
+
+        // let temp=userarray[0].course;
+
+        // console.log(temp);
+
+        userarray.forEach((element) => {
+          console.log("for each invoked");
+          console.log(element);
+          //    console.log()
+          let temp = element.course;
+          console.log(temp);
+
+          if (!element.course.find((c) => c == t)) {
+            console.log("in");
+            temp.push(t);
+          }
+          console.log("out");
+        });
+        localStorage.setItem("users", JSON.stringify(userarray));
+      }
+      function onremove(t) {
+        console.log(t);
+        let array = JSON.parse(localStorage.getItem("users"));
+        // console.log(array);
+        array.forEach((element) => {});
+      }
+
+      let obj = {
+        C1: "HTML",
+        C2: "CSS",
+        C3: "JAVAsCRIPT",
+      };
+
+      localStorage.setItem("Course", JSON.stringify(obj));
+      const storedata = JSON.parse(localStorage.getItem("table"));
+
+      function nextpage() {
+        location.replace("./list.html");
+      }
+
+      function createCourse() {
+        let courseName = prompt("enter new course name", "");
+        let courseTable = document.getElementById("tb");
+        courseTable.innerHTML += `<tr>
+    <td>${courseName}</td>
+    <td><button id="CSS" class="add" onClick="onadd('${courseName}')">Assign Course </button></td>
+    <td><button class="remove" onClick="onremove('${courseName}')">Remove</button></td>
+    </tr>`;
+      }
+
+      function logOut() {
+        sessionStorage.removeItem("loginUser");
+        location.replace("./signin.html");
+      }
+    </script>
+  </body>
+</html>

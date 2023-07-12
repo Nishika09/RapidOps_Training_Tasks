@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment2</title>
+</head>
+<body>
+
+    <script>
+        let Matrix_size=prompt("enter size of matrix");
+       
+        let nodes=[];
+
+        for(let i=0;i<Matrix_size;i++){
+            for(let j=0;j<Matrix_size;j++){
+                nodes.push({ "data": { "id": "N"+i+"-"+j } });
+            }
+        }
+      
+
+        let edges=[];
+        for(let i=0;i<Matrix_size;i++){
+            for(let j=0;j<Matrix_size;j++){
+                if(j<j+1 && j+1<Matrix_size ){
+                    edges.push({ "data": { "id":i+"-"+j+"E",  "source":  "N"+i+"-"+j,"target":  "N"+i+"-"+ (j+1) } })
+                }
+                 if(j>j-1 && j>=0){
+                    edges.push({ "data": { "id":i+"-"+j+"W",  "source":  "N"+i+"-"+j,"target":  "N"+i+"-"+ (j-1) } })
+
+                }
+                 if(i>i-1 && i>=0 ){
+                    edges.push({ "data": { "id":i+"-"+j+"N",  "source":  "N"+i+"-"+j,  "target":  "N"+(i-1)+"-"+ j } })
+                }
+                 if(i<i+1 && i+1<Matrix_size){
+                    edges.push({ "data": { "id":i+"-"+j+"S",  "source":  "N"+i+"-"+j,  "target":  "N"+(i+1)+"-"+ j } })
+                }
+                
+                
+            }
+        }
+        
+        
+        let obj={
+            "Nodes":nodes,
+            "Edges":edges
+        }
+        console.log(obj);
+                
+ 
+        
+
+
+
+
+
+    </script>
+    
+</body>
+</html>

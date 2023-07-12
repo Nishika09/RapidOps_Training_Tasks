@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let string = prompt("enter string");
+      removeSymbol(string);
+
+      function removeSymbol(string) {
+        let startindex = string.indexOf("{{");
+        let lastIndex = string.lastIndexOf("}}");
+
+        string = string.slice(startindex, lastIndex + 1);
+        symbolStart = string.indexOf("{{symbol}}");
+        symbolEnd = string.indexOf("{{", symbolStart + 10);
+        string =
+          string.slice(0, symbolStart) + string.slice(symbolEnd, string.length);
+        if (string == "{{symbol}}") {
+          console.log("");
+        } else if (string.includes("{{symbol}}")) {
+          removeSymbol(string);
+        } else {
+          console.log(string);
+        }
+      }
+    </script>
+  </body>
+</html>

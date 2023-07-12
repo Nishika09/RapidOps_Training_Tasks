@@ -1,0 +1,63 @@
+*{
+    margin:10px;
+}
+#fname{
+    font-size:20px;
+    padding:10px 15px 10px 15px;
+    margin:10px;
+    text-align: center;
+   
+}
+
+
+#lname{
+    font-size: 20px;
+    padding:10px 15px 10px 15px;
+    margin:10px;
+    text-align:center;
+    
+}
+
+#button{
+    font-size: 20px;
+    padding:10px 15px 10px 15px;
+    
+    background-color: rgb(171, 216, 231);
+
+}
+
+.firstname{
+    /* padding:30px 20px 30px 20px; */
+    font-size:20px;   
+    font-weight:bold;
+    display: flex;
+    justify-content:center;
+}
+
+
+.table{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    font-size:30px;
+    width: 40%;
+
+    
+} 
+.edit{
+    background-color: green;
+    font-size: large;
+   align-content: center;
+   
+    font-weight: bold;
+}
+.delete{
+    background-color: red;
+    font-size: large;
+    
+    font-weight: bold;
+}
+#total{
+    align-items: center;
+    font-weight: bolder;
+}

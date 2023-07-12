@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard</title>
+</head>
+<style>
+    .navbar {
+        background-color: rgb(130, 212, 247);
+        height: 50px;
+        width: 100%;
+        font-size: 30px;
+        font-weight: bold;
+
+    }
+
+    .logo {
+        margin-left: 10px;
+
+    }
+
+    .logout {
+        float: right;
+        margin-top: 10px;
+        margin-right: 20px;
+        font-size: large;
+        font-weight: bold;
+    }
+</style>
+
+<body>
+
+    <div class="navbar" >
+        <p class="logo">Rapidops 
+            <p id="uName"></p>
+           
+            <button class="logout" onclick="Logout()">LogOut</button></p>
+        <div id="course">
+        
+    
+        </div>
+       
+
+
+
+
+    </div>
+
+    <script>
+
+        window.onload = ()=> {
+            let currentUser = JSON.parse(sessionStorage.getItem("loginUser"));
+            if (currentUser) {
+                document.getElementById("uName").innerText="Welcome "+ currentUser.Username;
+                    currentUser.course.forEach(c => {
+                    document.getElementById("course").innerHTML+=`<span>${c}</span><br>`
+                });
+            } else {
+                location.replace('./signin.html');
+            }
+        };
+        
+    function Logout(){
+        sessionStorage.removeItem("loginUser");
+        location.replace('./signin.html');
+        
+
+    }
+
+    </script>
+
+</body>
+
+</html>

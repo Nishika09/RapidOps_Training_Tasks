@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>spiral Pattern</title>
+  </head>
+  <body>
+    <script>
+      let num= +prompt("enter number of row")
+      let index = 1;
+      let row_start = 0,
+        column_start = 0,
+        row_end = num-1,
+        column_end = num-1;
+
+        let arr = new Array(num);
+        for (let k = 0; k < num; k++) {
+          arr[k] = new Array(num);
+        }
+       
+
+        while (row_start <= row_end && column_start <= column_end) {
+          // print the first row from the remaining rows
+          for (i = column_start; i <= column_end; ++i) {
+            arr[row_start][i] = index;
+            index++;
+            
+          }
+         
+          row_start++;
+
+          // print the last column from the remaining columns
+          for (i = row_start; i <= row_end; ++i) {
+            arr[i][column_end] = index;
+            index++;
+          }
+          column_end--;
+
+          // print the last row from the remaining rows
+          // if (row_start < row_end) {
+          for (i = column_end; i >= column_start; --i) {
+            arr[row_end][i] = index;
+            index++;
+          }
+          row_end--;
+
+          // print the first column from the remaining columns
+          // if (column_start <column_end) {
+          for (i = row_end; i >= row_start; --i) {
+            arr[i][column_start] = index;
+            index++;
+          }
+          column_start++;
+        }
+
+
+       for(let i=0;i<num;i++){
+        for(let j=0;j<num;j++){
+            document.write(arr[i][j]," ");
+        }
+        
+        document.write("<br>");
+      
+       }
+        
+
+    </script>
+  </body>
+</html>

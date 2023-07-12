@@ -1,0 +1,55 @@
+.container {
+  margin-left: 40%;
+}
+
+.flex-container1 {
+  display: flex;
+  margin: auto;
+
+  font-size: 20px;
+
+  text-align: center;
+  margin-top: 200px;
+}
+.flex-container2 {
+  display: flex;
+  margin: auto;
+
+  font-size: 20px;
+  text-align: center;
+}
+.box1 {
+  margin: 10px;
+  height: 150px;
+  width: 150px;
+
+  padding: 10px;
+  border: solid;
+  background-color: rgb(16, 134, 134);
+}
+.box2 {
+  margin: 10px;
+  height: 150px;
+  width: 150px;
+
+  padding: 10px;
+  border: solid;
+  background-color: rgb(236, 105, 127);
+}
+.box3 {
+  margin: 10px;
+  height: 150px;
+  width: 150px;
+
+  padding: 10px;
+  border: solid;
+  background-color: rgb(131, 235, 165);
+}
+.box4 {
+  margin: 10px;
+  height: 150px;
+  width: 150px;
+  background-color: rgb(205, 148, 233);
+  padding: 10px;
+  border: solid;
+}
